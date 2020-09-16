@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Admin Page</title>
+</head>
+<body>
+<nav>
+    <div class="nav-wrapper">
+        <div class="container">
+            <a href="/employee/load" class="brand-logo">Welcome Admin</a>
+            <ul id="nav-mobile" class="right">
+                <li><a href="/employee/create">Create Employee</a></li>
+                <li><a href="/employee/employees">View Employees</a></li>
+<!--                <li><a onclick="return confirm('Are you sure?')" href="/attendance/take">Take Attendance</a></li>-->
+                <li><a href="/attendance/view">View Attendance</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container" style="margin-top: 10rem">
+    <div class="row">
+        <form class="col s12" method="post" th:action="@{/employee/create}" th:object="${employee}">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="first_name" type="text" class="validate" th:field="*{firstName}">
+                    <label for="first_name">First Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="last_name" type="text" class="validate" th:field="*{lastName}">
+                    <label for="last_name">Last Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="email" type="email" class="validate" th:field="*{email}">
+                    <label for="first_name">Email</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="password" type="password" class="validate" th:field="*{password}">
+                    <label for="last_name">Password</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="role" type="text" class="validate" th:field="*{role}">
+                    <label for="first_name">Role</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="phone_no" type="text" class="validate" th:field="*{phoneNo}">
+                    <label for="last_name">Phone No</label>
+                </div>
+            </div>
+            <div class="input-field col s6">
+                <button class="btn" style="background-color: #EE6E73" type="submit" name="action">Create
+
+                </button>
+<!--                <button class="btn orange" type="submit" name="action">Update-->
+
+<!--                </button>-->
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script th:src="@{/js/scripts.js}" src="../static/js/scripts..js"></script>
+</html>

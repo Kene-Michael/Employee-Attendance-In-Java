@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Attendance SignIn</title>
+</head>
+<body>
+<nav>
+    <div class="nav-wrapper">
+        <div class="container">
+            <a href="#" class="brand-logo">DecaAttendance</a>
+
+        </div>
+    </div>
+</nav>
+
+<div class="container" style="margin-top: 10rem">
+    <h4 style="color: #EE6E73">Sign In</h4>
+    <div th:if="${invalid != null}">
+        <p style="color: #EE6E73" th:text="${invalid}"></p>
+    </div>
+    <div class="row">
+        <form class="col s12" method="post" th:action="@{/}" th:object="${employee}">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="email" type="text" data-length="10" placeholder="Email" th:field="*{email}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="password" type="password" data-length="10" placeholder="Password" th:field="*{password}">
+                </div>
+            </div>
+            <div class="row">
+                <button class="btn" style="background-color: #EE6E73" type="submit" name="action">SignIn
+
+                </button>
+            </div>
+        </form>
+    </div>
+
+</div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</html>
