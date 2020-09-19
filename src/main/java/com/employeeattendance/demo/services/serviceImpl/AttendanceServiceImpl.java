@@ -6,9 +6,7 @@ import com.employeeattendance.demo.services.AttendanceService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class AttendanceServiceImpl implements AttendanceService {
@@ -19,7 +17,7 @@ public class AttendanceServiceImpl implements AttendanceService {
     }
 
     @Override
-    public Attendance takeAttendance(Attendance attendance) {
+    public Attendance takeAttendance(Attendance attendance) throws NullPointerException {
         return attendanceRepository.save(attendance);
     }
 

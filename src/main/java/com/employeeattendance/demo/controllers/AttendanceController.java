@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Controller
 @RequestMapping("/attendance")
@@ -41,8 +43,15 @@ public class AttendanceController {
         Employee employee = (Employee) httpSession.getAttribute("employee");
         if (employee == null) return "redirect:/";
         Attendance attendance = new Attendance();
-        attendance.setEmployee(employee);
-        attendanceService.takeAttendance(attendance);
+        LocalDateTime begin = LocalDateTime.now().with(LocalTime.of(3, 0));
+        LocalDateTime end = LocalDateTime.now().with(LocalTime.of(16, 0));
+        for (Attendance employeeAttendance: attendanceService.getAttendanceByEmployeeId(employee.getId())) {
+            if(attendance.getLocalDateTime().getDayOfYear() == employeeAttendance.getLocalDateTime().getDayOfYear()) return "redirect:/attendance/load";
+        }
+        if(attendance.getLocalDateTime().isAfter(begin) && attendance.getLocalDateTime().isBefore(end)) {
+            attendance.setEmployee(employee);
+            attendanceService.takeAttendance(attendance);
+        }
         return "redirect:/attendance/load";
     }
 

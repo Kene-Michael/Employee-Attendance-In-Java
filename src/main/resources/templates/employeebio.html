@@ -54,7 +54,7 @@
                 </div>
             </div>
             <div class="input-field col s6">
-                <button class="btn" style="background-color: #EE6E73" type="submit" name="action">Update</button>
+                <button class="btn" onclick="return confirm('Update Employee Bio')" style="background-color: #EE6E73" type="submit" name="action">Update</button>
             </div>
         </form>
         <form method="post" th:object="${employee}" th:action="@{'/employee/delete/'+${employee_id}}">
