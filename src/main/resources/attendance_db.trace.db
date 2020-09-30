@@ -7845,3 +7845,30 @@ Caused by: java.nio.channels.OverlappingFileLockException
 	at java.base/java.nio.channels.FileChannel.tryLock(FileChannel.java:1178)
 	at org.h2.mvstore.FileStore.open(FileStore.java:163)
 	... 28 more
+2020-09-29 20:45:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT IF[*] NOT EXISTS INTO EMPLOYEES (ID,FIRST_NAME, LAST_NAME, EMAIL, PASSWORD, ROLE, PHONE_NO) VALUES (1,'Kenechukwu', 'Okafor', 'hello@gmail.com', 'hello', 'Admin', '08138119774')"; expected "INTO"; SQL statement:
+INSERT IF NOT EXISTS INTO employees (id,first_Name, last_Name, email, password, role, phone_No) VALUES (1,'Kenechukwu', 'Okafor', 'hello@gmail.com', 'hello', 'Admin', '08138119774') [42001-200]
+2020-09-29 20:46:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT EXISTS[*] INTO EMPLOYEES (ID,FIRST_NAME, LAST_NAME, EMAIL, PASSWORD, ROLE, PHONE_NO) VALUES (1,'Kenechukwu', 'Okafor', 'hello@gmail.com', 'hello', 'Admin', '08138119774')"; expected "INTO"; SQL statement:
+INSERT EXISTS INTO employees (id,first_Name, last_Name, email, password, role, phone_No) VALUES (1,'Kenechukwu', 'Okafor', 'hello@gmail.com', 'hello', 'Admin', '08138119774') [42001-200]
+2020-09-30 02:38:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "REPLACE[*] INTO EMPLOYEES(ID,FIRST_NAME,LAST_NAME,EMAIL,PASSWORD,ROLE,PHONE_NO)"; expected "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE"; SQL statement:
+REPLACE INTO employees(id,first_name,last_name,email,password,role,phone_no) [42001-200]
+2020-09-30 02:45:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "REPLACE[*] INTO EMPLOYEES(ID,FIRST_NAME,LAST_NAME,EMAIL,PASSWORD,ROLE,PHONE_NO)"; expected "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE"; SQL statement:
+REPLACE INTO employees(id,first_name,last_name,email,password,role,phone_no) [42001-200]
+2020-09-30 02:47:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "REPLACE[*] INTO EMPLOYEES(ID,FIRST_NAME,LAST_NAME,EMAIL,PASSWORD,ROLE,PHONE_NO)"; expected "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE"; SQL statement:
+REPLACE INTO employees(ID,FIRST_NAME,LAST_NAME,EMAIL,PASSWORD,ROLE,PHONE_NO) [42001-200]
+2020-09-30 02:50:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EMPLOYEES" already exists; SQL statement:
+create table employees ( ID INTEGER PRIMARY KEY AUTO_INCREMENT, FIRST_NAME varchar(255) not null, LAST_NAME varchar(255) not null, EMAIL varchar(255) not null, PASSWORD varchar(255) not null, ROLE varchar(255) not null, PHONE_NO varchar(11) not null ) [42101-200]
+2020-09-30 02:52:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "REPLACE[*] INTO EMPLOYEES(ID,FIRST_NAME,LAST_NAME,EMAIL,PASSWORD,ROLE,PHONE_NO) VALUES(1,'Kenechukwu','Okafor','hello@gmail.com','hello','Admin','08138119774')"; expected "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE"; SQL statement:
+REPLACE INTO employees(ID,FIRST_NAME,LAST_NAME,EMAIL,PASSWORD,ROLE,PHONE_NO) VALUES(1,'Kenechukwu','Okafor','hello@gmail.com','hello','Admin','08138119774') [42001-200]
+2020-09-30 02:59:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]# REPLACE INTO EMPLOYEES(ID,FIRST_NAME,LAST_NAME,EMAIL,PASSWORD,ROLE,PHONE_NO) # VALUES(1,'Kenechukwu','Okafor','hello@gmail.com','hello','Admin','08138119774') INSERT IGNORE INTO EMPLOYEES SET ID = 1, FIRST_NAME = 'Kenechukwu', LAST_NAME = 'Okafor', EMAIL = 'hello@gmail.com', PASSWORD = 'hello', ROLE = 'Admin', PHONE_NO = '08138119774'"; SQL statement:
+# REPLACE INTO employees(ID,FIRST_NAME,LAST_NAME,EMAIL,PASSWORD,ROLE,PHONE_NO) # VALUES(1,'Kenechukwu','Okafor','hello@gmail.com','hello','Admin','08138119774') INSERT IGNORE INTO employees SET ID = 1, FIRST_NAME = 'Kenechukwu', LAST_NAME = 'Okafor', EMAIL = 'hello@gmail.com', PASSWORD = 'hello', ROLE = 'Admin', PHONE_NO = '08138119774' [42000-200]
+2020-09-30 03:00:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT IGNORE[*] INTO EMPLOYEES SET ID = 1, FIRST_NAME = 'Kenechukwu', LAST_NAME = 'Okafor', EMAIL = 'hello@gmail.com', PASSWORD = 'hello', ROLE = 'Admin', PHONE_NO = '08138119774'"; expected "INTO"; SQL statement:
+INSERT IGNORE INTO employees SET ID = 1, FIRST_NAME = 'Kenechukwu', LAST_NAME = 'Okafor', EMAIL = 'hello@gmail.com', PASSWORD = 'hello', ROLE = 'Admin', PHONE_NO = '08138119774' [42001-200]

@@ -34,13 +34,19 @@ public class EmployeeController {
         Employee admin = (Employee) httpSession.getAttribute("employee");
         if(admin == null || !admin.getRole().equalsIgnoreCase("admin")) return "redirect:/";
         model.addAttribute("employee", new Employee());
+        model.addAttribute("invalid", null);
         return "createEmployee";
     }
 
     @PostMapping("/create")
-    public String createEmployee(HttpSession httpSession, @Valid Employee employee) {
+    public String createEmployee(HttpSession httpSession, @Valid Employee employee,Model model) {
         Employee admin = (Employee) httpSession.getAttribute("employee");
         if (admin == null) return "redirect:/";
+        System.out.println(employee.getPhoneNo().length());
+        if(employee.getPhoneNo().length() != 11) {
+            model.addAttribute("invalid","phone number not valid");
+            return "createEmployee";
+        }
         employeeService.createEmployee(employee);
         return "redirect:/employee/create";
     }

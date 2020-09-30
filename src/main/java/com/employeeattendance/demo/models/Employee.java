@@ -20,6 +20,7 @@ public class Employee {
     private String role;
     private String phoneNo;
 
+
     @OneToMany(mappedBy = "employee")
     List<Attendance> attendanceList = new ArrayList<>();
 
