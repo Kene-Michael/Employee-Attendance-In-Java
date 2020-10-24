@@ -14,7 +14,7 @@ import javax.validation.Valid;
 @Controller
 @RequestMapping("/")
 public class SignInController {
-    private EmployeeService employeeService;
+    private final EmployeeService employeeService;
 
     public SignInController(EmployeeService employeeService) {
         this.employeeService = employeeService;

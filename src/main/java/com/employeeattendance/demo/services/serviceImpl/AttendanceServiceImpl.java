@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 public class AttendanceServiceImpl implements AttendanceService {
-    AttendanceRepository attendanceRepository;
+    private final AttendanceRepository attendanceRepository;
 
     public AttendanceServiceImpl(AttendanceRepository attendanceRepository) {
         this.attendanceRepository = attendanceRepository;

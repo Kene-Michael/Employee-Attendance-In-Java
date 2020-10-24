@@ -1,5 +1,6 @@
 package com.employeeattendance.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -19,7 +20,6 @@ public class Employee {
     private String password;
     private String role;
     private String phoneNo;
-
 
     @OneToMany(mappedBy = "employee")
     List<Attendance> attendanceList = new ArrayList<>();

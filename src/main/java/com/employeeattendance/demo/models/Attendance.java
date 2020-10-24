@@ -16,7 +16,7 @@ public class Attendance {
     private Long id;
 
     @CreationTimestamp
-    private LocalDateTime localDateTime = LocalDateTime.now();
+    private LocalDateTime localDateTime ;
 
     @ManyToOne
     private Employee employee;

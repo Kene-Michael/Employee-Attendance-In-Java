@@ -4,6 +4,7 @@ import com.employeeattendance.demo.models.Attendance;
 import com.employeeattendance.demo.models.Employee;
 import com.employeeattendance.demo.services.AttendanceService;
 import com.employeeattendance.demo.services.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,9 +19,10 @@ import java.time.LocalTime;
 @Controller
 @RequestMapping("/attendance")
 public class AttendanceController {
-    private AttendanceService attendanceService;
-    private EmployeeService employeeService;
+    private final AttendanceService attendanceService;
+    private final EmployeeService employeeService;
 
+    @Autowired
     public AttendanceController(AttendanceService attendanceService,EmployeeService employeeService) {
         this.attendanceService = attendanceService;
         this.employeeService = employeeService;

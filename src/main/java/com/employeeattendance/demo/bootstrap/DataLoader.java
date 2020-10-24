@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
-    EmployeeService employeeService;
+    private final EmployeeService employeeService;
 
     public DataLoader(EmployeeService employeeService) {
         this.employeeService = employeeService;
